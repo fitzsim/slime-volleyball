@@ -532,7 +532,7 @@
   (setq slime-volleyball-points-to-win 5)
 
   (setq slime-volleyball-slime-radius 90)
-  (setq slime-volleyball-ball-radius 
+  (setq slime-volleyball-ball-radius
         (round (* 0.25 slime-volleyball-slime-radius)))
 
   ;; Gravity.
@@ -1090,7 +1090,6 @@
          (format slime-volleyball-endvar (+ 4 92) (- slime-volleyball-offset))
          (format slime-volleyball-endvar (+ 4 192) (- slime-volleyball-offset))
          (slime-volleyball-slime slime-volleyball-slime1 100 172)
-         
          (slime-volleyball-footer))))
 
 (defun slime-volleyball-draw-scene ()
@@ -1512,7 +1511,6 @@
     (if slime-volleyball-two-players
         (setq slime-volleyball-unpause-function 'slime-volleyball-new-game)
       ;; One player mode.
-      ;; If in one player mode and 
       (if slime-volleyball-one-player-beat-the-game
           (setq slime-volleyball-unpause-function
                 'slime-volleyball-play-ending)
