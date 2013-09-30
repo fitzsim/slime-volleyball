@@ -3,14 +3,30 @@ slime-volleyball.el
 
 This is Emacs Slime Volleyball.
 
-To install it, add to your initialization file:
+Requirements
+------------
 
-(add-to-list 'load-path "/path/to/slime-volleyball")
-(require 'slime-volleyball)
+* A fairly recent version of GNU Emacs
+  I tested on GNU Emacs 24.3.50.1 (i686-pc-linux-gnu)
 
-Run it with:
+* A graphical Emacs session
 
-<f11> to fullscreen Emacs
-M-x slime-volleyball
+* EMMS for sound support (optional, disabled by default)
 
-Tested on GNU Emacs 24.3.50.1 (i686-pc-linux-gnu).
+Installation
+------------
+
+Add the following to your initialization file:
+
+    (add-to-list 'load-path "/path/to/slime-volleyball")
+    (require 'slime-volleyball)
+
+Running
+-------
+
+First make sure the Emacs frame is fairly large; for example, press F11 to make
+the frame fullscreen.  Then:
+
+    M-x slime-volleyball
+
+Have fun!
