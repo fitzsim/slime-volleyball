@@ -291,7 +291,6 @@
 
 ;; Dynamically-scoped slime-volleyball-save-strategy helper function.
 (defun slime-volleyball-save-strategy-helper (key values)
-  (interactive)
   (insert-string
    (format "(puthash \"%s\" '%s %s)\n"
            key
