@@ -1682,23 +1682,25 @@
       (cancel-timer timer))))
 
 (defun slime-volleyball-play-music (name)
-  (when slime-volleyball-enable-sound
-    (let ((temp-file (make-temp-file name nil ".ogg"))
-          ;; This is not recommended.
-          (large-file-warning-threshold 1000000000)
-          (undo-outer-limit 60000000))
-      (find-file (expand-file-name (concat name ".b64")
-                                   (file-name-directory
-                                    (symbol-file 'slime-volleyball-init))))
-      (with-current-buffer (concat name ".b64")
-        (base64-decode-region (point-min) (point-max))
-        (write-file temp-file)
-        ;; Clear mini-buffer.
-        (message nil)
-        (kill-buffer))
-      ;; Suppress message "EMMS: All track information loaded.".
-      (let ((emms-info-asynchronously nil))
-        (emms-play-file temp-file)))))
+  ;; Ignore errors in case EMMS doesn't have ogg support.
+  (ignore-errors
+    (when slime-volleyball-enable-sound
+      (let ((temp-file (make-temp-file name nil ".ogg"))
+            ;; This is not recommended.
+            (large-file-warning-threshold 1000000000)
+            (undo-outer-limit 60000000))
+        (find-file (expand-file-name (concat name ".b64")
+                                     (file-name-directory
+                                      (symbol-file 'slime-volleyball-init))))
+        (with-current-buffer (concat name ".b64")
+          (base64-decode-region (point-min) (point-max))
+          (write-file temp-file)
+          ;; Clear mini-buffer.
+          (message nil)
+          (kill-buffer))
+        ;; Suppress message "EMMS: All track information loaded.".
+        (let ((emms-info-asynchronously nil))
+          (emms-play-file temp-file))))))
 
 (defun slime-volleyball-introduce-opponent ()
   (when (and (not slime-volleyball-two-players)
