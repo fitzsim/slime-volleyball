@@ -1499,7 +1499,7 @@
     (define-key slime-volleyball-mode-map (kbd "p") nil)
     (setq slime-volleyball-play-ending t)
     (when slime-volleyball-enable-sound
-      (slime-volleyball-play-music "end"))))
+      (slime-volleyball-play-music "end" t))))
 
 (defun slime-volleyball-say-game-over ()
   (setq slime-volleyball-unpause-function
@@ -1681,7 +1681,7 @@
     (when (eq (elt timer 5) timer-function)
       (cancel-timer timer))))
 
-(defun slime-volleyball-play-music (name)
+(defun slime-volleyball-play-music (name repeat)
   ;; Ignore errors in case EMMS doesn't have ogg support.
   (ignore-errors
     (when slime-volleyball-enable-sound
@@ -1700,6 +1700,9 @@
           (kill-buffer))
         ;; Suppress message "EMMS: All track information loaded.".
         (let ((emms-info-asynchronously nil))
+          ;; Doing this dynamically doesn't work for some reason, but
+          ;; repetition is required so messy measures must be taken.
+          (setq emms-repeat-track repeat)
           (emms-play-file temp-file))))))
 
 (defun slime-volleyball-introduce-opponent ()
@@ -1731,7 +1734,7 @@
   (slime-volleyball-add-timer 0.03 'slime-volleyball-render)
   (slime-volleyball-add-timer 0.5 'slime-volleyball-eval-god-mode-variables)
   (sit-for 0.1)
-  (slime-volleyball-play-music "start")
+  (slime-volleyball-play-music "start" nil)
   (sleep-for 4)
   (when slime-volleyball-enable-sound
     (emms-stop))
