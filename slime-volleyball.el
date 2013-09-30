@@ -548,6 +548,7 @@
   ;; an idealized 1 pixel wide net width.
   (setq slime-volleyball-net-width 20)
 
+  (setq slime-volleyball-god-mode nil)
   (setq slime-volleyball-color-index 0)
   (slime-volleyball-initialize-god-mode-globals)
 
@@ -578,7 +579,6 @@
   (setq slime-volleyball-message nil)
   (setq slime-volleyball-unpause-function nil)
 
-  (setq slime-volleyball-god-mode nil)
   (setq slime-volleyball-frame-by-frame-mode nil)
 
   (slime-volleyball-initialize-keymap)
