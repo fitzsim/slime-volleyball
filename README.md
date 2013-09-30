@@ -7,6 +7,7 @@ Requirements
 ------------
 
 * A fairly recent version of GNU Emacs
+  
   I tested on GNU Emacs 24.3.50.1 (i686-pc-linux-gnu)
 
 * A graphical Emacs session
