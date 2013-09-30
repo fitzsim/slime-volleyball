@@ -7,12 +7,14 @@ Requirements
 ------------
 
 * A fairly recent version of GNU Emacs
-  
+
   I tested on GNU Emacs 24.3.50.1 (i686-pc-linux-gnu)
 
 * A graphical Emacs session
 
 * EMMS for sound support (optional, disabled by default)
+
+* Fast graphics and CPU
 
 Installation
 ------------
