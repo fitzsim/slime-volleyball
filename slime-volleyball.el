@@ -124,6 +124,11 @@
   :type 'boolean
   :group 'slime-volleyball)
 
+(defcustom slime-volleyball-beach-mode nil
+  "Non-nil when Slimes should compete on sand"
+  :type 'boolean
+  :group 'slime-volleyball)
+
 (cl-defstruct slime-volleyball-slime
   "A player in the game of slime volleyball"
   player
@@ -747,7 +752,9 @@
         slime-volleyball-template-ground
         (concat
          "<rect x=\"0\" y=\"%d\" width=\"%d\" height=\"%d\""
-         " fill=\"#888888\" />")
+         " fill=\""
+         (if slime-volleyball-beach-mode "#EEE8AA" "#778899")
+         "\" />")
         slime-volleyball-template-message-box-start
         (concat
          "<defs>"
