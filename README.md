@@ -26,7 +26,7 @@ Running
 -------
 
 First make sure the Emacs frame is fairly large; for example, press F11 to make
-the frame fullscreen.  Then:
+it fullscreen.  Then:
 
     M-x slime-volleyball
 
