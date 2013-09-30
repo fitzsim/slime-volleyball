@@ -712,7 +712,7 @@
         (create-image
          (expand-file-name "title-screen.svg"
                            (file-name-directory
-                            (symbol-file 'slime-volleyball)))))
+                            (symbol-file 'slime-volleyball-init)))))
   (setq slime-volleyball-template-header
         (concat "<svg width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\""
                 " xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">")
@@ -1647,7 +1647,7 @@
     (progn
       (split-window nil nil 'above)
       (other-window 1)
-      (find-file (symbol-file 'slime-volleyball))
+      (find-file (symbol-file 'slime-volleyball-init))
       (goto-char (point-min))
       (search-forward-regexp
        "^(defun slime-volleyball-initialize-god-mode-globals"
@@ -1682,7 +1682,7 @@
           (undo-outer-limit 60000000))
       (find-file (expand-file-name (concat name ".b64")
                                    (file-name-directory
-                                    (symbol-file 'slime-volleyball))))
+                                    (symbol-file 'slime-volleyball-init))))
       (with-current-buffer (concat name ".b64")
         (base64-decode-region (point-min) (point-max))
         (write-file temp-file)
@@ -1708,10 +1708,10 @@
   (message "Loading slime strategies...")
   (load-file (expand-file-name "grey-slime.el.gz"
                                (file-name-directory
-                                (symbol-file 'slime-volleyball))))
+                                (symbol-file 'slime-volleyball-init))))
   (load-file (expand-file-name "green-slime.el.gz"
                                (file-name-directory
-                                (symbol-file 'slime-volleyball))))
+                                (symbol-file 'slime-volleyball-init))))
   (slime-volleyball-initialize-globals)
   (with-current-buffer (get-buffer-create "*slime-volleyball*")
     (buffer-disable-undo))
