@@ -120,12 +120,12 @@
 (defvar slime-volleyball-animation-timer nil)
 
 (defcustom slime-volleyball-enable-sound nil
-  "Non-nil when slime-volleyball should play music"
+  "Non-nil when slime-volleyball should play music."
   :type 'boolean
   :group 'slime-volleyball)
 
 (defcustom slime-volleyball-beach-mode nil
-  "Non-nil when Slimes should compete on sand"
+  "Non-nil when Slimes should compete on sand."
   :type 'boolean
   :group 'slime-volleyball)
 
@@ -1169,7 +1169,7 @@
 
 ;; Dynamically-scoped slime-volleyball-scene-update helper function.
 (defun slime-volleyball-net-ball-bounding-box-overlap ()
-  ;; Check if ball (s1 e1) and net  (s2 e2) x intervals overlap.
+  "Check if ball (s1 e1) and net  (s2 e2) x intervals overlap."
   (let* ((s1 (- x-f slime-volleyball-ball-radius))
          (e1 (+ x-f slime-volleyball-ball-radius))
          (s2 slime-volleyball-net-x)
@@ -1757,3 +1757,5 @@
       (kill-buffer "*slime-volleyball*"))))
 
 (provide 'slime-volleyball)
+
+;;; slime-volleyball.el ends here
