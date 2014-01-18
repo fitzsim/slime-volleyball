@@ -1741,10 +1741,14 @@
   (setq slime-volleyball-unpause-function
         'slime-volleyball-introduce-opponent)
   (slime-volleyball-pause "Press SPC or 2 to Start")
+  (add-hook 'kill-buffer-hook
+            (lambda ()
+              (slime-volleyball-quit 'force-quit 'no-kill))
+            nil 'local)
   (with-current-buffer (get-buffer-create "*slime-volleyball*")
     (use-local-map slime-volleyball-mode-map)))
 
-(defun slime-volleyball-quit (&optional force-quit)
+(defun slime-volleyball-quit (&optional force-quit no-kill)
   (interactive)
   (when (or force-quit
             (y-or-n-p "Quit Slime Volleyball?"))
@@ -1754,7 +1758,8 @@
     (slime-volleyball-scrub-timer-list 'slime-volleyball-render)
     (slime-volleyball-scrub-timer-list
      'slime-volleyball-eval-god-mode-variables)
-    (when (get-buffer "*slime-volleyball*")
+    (when (and (not no-kill)
+               (get-buffer "*slime-volleyball*"))
       (kill-buffer "*slime-volleyball*"))))
 
 (provide 'slime-volleyball)
