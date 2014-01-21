@@ -1712,6 +1712,7 @@
                                           slime-volleyball-level))))
     (setq slime-volleyball-unpause-function nil)))
 
+;;;###autoload
 (defun slime-volleyball ()
   (interactive)
   (setq slime-volleyball-starting t)
@@ -1757,3 +1758,5 @@
       (kill-buffer "*slime-volleyball*"))))
 
 (provide 'slime-volleyball)
+
+;;; slime-volleyball.el ends here
