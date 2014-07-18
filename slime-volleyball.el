@@ -1,4 +1,4 @@
-;;; slime-volleyball.el --- A slime volleyball clone
+;;; slime-volleyball.el --- An SVG Slime Volleyball Game
 
 ;; Copyright (C) 2013 Thomas Fitzsimmons
 
