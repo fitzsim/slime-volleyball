@@ -120,12 +120,12 @@
 (defvar slime-volleyball-animation-timer nil)
 
 (defcustom slime-volleyball-enable-sound nil
-  "Non-nil when slime-volleyball should play music"
+  "Non-nil when slime-volleyball should play music."
   :type 'boolean
   :group 'slime-volleyball)
 
 (defcustom slime-volleyball-beach-mode nil
-  "Non-nil when Slimes should compete on sand"
+  "Non-nil when Slimes should compete on sand."
   :type 'boolean
   :group 'slime-volleyball)
 
@@ -1169,7 +1169,7 @@
 
 ;; Dynamically-scoped slime-volleyball-scene-update helper function.
 (defun slime-volleyball-net-ball-bounding-box-overlap ()
-  ;; Check if ball (s1 e1) and net  (s2 e2) x intervals overlap.
+  "Check if ball (s1 e1) and net  (s2 e2) x intervals overlap."
   (let* ((s1 (- x-f slime-volleyball-ball-radius))
          (e1 (+ x-f slime-volleyball-ball-radius))
          (s2 slime-volleyball-net-x)
@@ -1712,6 +1712,7 @@
                                           slime-volleyball-level))))
     (setq slime-volleyball-unpause-function nil)))
 
+;;;###autoload
 (defun slime-volleyball ()
   (interactive)
   (setq slime-volleyball-starting t)
@@ -1740,10 +1741,14 @@
   (setq slime-volleyball-unpause-function
         'slime-volleyball-introduce-opponent)
   (slime-volleyball-pause "Press SPC or 2 to Start")
+  (add-hook 'kill-buffer-hook
+            (lambda ()
+              (slime-volleyball-quit 'force-quit 'no-kill))
+            nil 'local)
   (with-current-buffer (get-buffer-create "*slime-volleyball*")
     (use-local-map slime-volleyball-mode-map)))
 
-(defun slime-volleyball-quit (&optional force-quit)
+(defun slime-volleyball-quit (&optional force-quit no-kill)
   (interactive)
   (when (or force-quit
             (y-or-n-p "Quit Slime Volleyball?"))
@@ -1753,7 +1758,10 @@
     (slime-volleyball-scrub-timer-list 'slime-volleyball-render)
     (slime-volleyball-scrub-timer-list
      'slime-volleyball-eval-god-mode-variables)
-    (when (get-buffer "*slime-volleyball*")
+    (when (and (not no-kill)
+               (get-buffer "*slime-volleyball*"))
       (kill-buffer "*slime-volleyball*"))))
 
 (provide 'slime-volleyball)
+
+;;; slime-volleyball.el ends here
