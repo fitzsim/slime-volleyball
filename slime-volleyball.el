@@ -115,7 +115,8 @@
 
 ;;; Code:
 
-(require 'cl-lib)
+(unless (require 'cl-lib nil t)
+  (require 'cl))
 
 (defvar slime-volleyball-animation-timer nil)
 
