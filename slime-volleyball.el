@@ -1715,6 +1715,8 @@
 ;;;###autoload
 (defun slime-volleyball ()
   (interactive)
+  (unless (image-type-available-p 'svg)
+    (error "Sorry: this Emacs does not support svg images."))
   (setq slime-volleyball-starting t)
   (message "Loading slime strategies...")
   (load-file (expand-file-name "grey-slime.el.gz"
