@@ -6,7 +6,7 @@ This is Emacs Slime Volleyball.
 Requirements
 ------------
 
-* A fairly recent version of GNU Emacs
+* A fairly recent version of GNU Emacs, compiled with librsvg support
 
   I tested on GNU Emacs 24.3.50.1 (i686-pc-linux-gnu)
 
