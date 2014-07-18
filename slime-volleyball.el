@@ -1169,7 +1169,7 @@
 
 ;; Dynamically-scoped slime-volleyball-scene-update helper function.
 (defun slime-volleyball-net-ball-bounding-box-overlap ()
-  "Check if ball (s1 e1) and net  (s2 e2) x intervals overlap."
+  "Check if ball (s1 e1) and net (s2 e2) x intervals overlap."
   (let* ((s1 (- x-f slime-volleyball-ball-radius))
          (e1 (+ x-f slime-volleyball-ball-radius))
          (s2 slime-volleyball-net-x)
@@ -1716,7 +1716,7 @@
 (defun slime-volleyball ()
   (interactive)
   (unless (image-type-available-p 'svg)
-    (error "Sorry: this Emacs does not support svg images."))
+    (error "Sorry, this Emacs does not support SVG images"))
   (setq slime-volleyball-starting t)
   (message "Loading slime strategies...")
   (load-file (expand-file-name "grey-slime.el.gz"
@@ -1753,7 +1753,7 @@
 (defun slime-volleyball-quit (&optional force-quit no-kill)
   (interactive)
   (when (or force-quit
-            (y-or-n-p "Quit Slime Volleyball?"))
+            (y-or-n-p "Quit Slime Volleyball? "))
     (setq slime-volleyball-quitting t)
     (when slime-volleyball-enable-sound
       (emms-stop))
