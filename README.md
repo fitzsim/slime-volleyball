@@ -3,6 +3,8 @@ slime-volleyball.el
 
 This is Emacs Slime Volleyball.
 
+![Emacs Slime Volleyball screenshot](emacs-slime-volleyball.png?raw=true)
+
 Requirements
 ------------
 
