@@ -726,7 +726,7 @@
         slime-volleyball-template-slime
         (concat
          "<g id=\"slime1\" transform=\"translate(%d,%d)\" >"
-         "<path d=\"M=0,0 a%d,%d 0 0 1 %d,0 z\""
+         "<path d=\"M 0,0 a %d,%d 0 0 1 %d,0 z\""
          " fill=\"%s\" stroke-width=\"0\" />"
          "<circle cx=\"%d\" cy=\"%d\" r=\"%d\" fill=\"white\" />"
          "<circle cx=\"%d\" cy=\"%d\" r=\"%d\" fill=\"black/\" />"
