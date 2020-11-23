@@ -1,10 +1,10 @@
-As of 2020-11-22, Emacs Slime Volleyball is maintained in GNU ELPA.
-To clone it, use:
+As of 2020-11-22, Emacs Slime Volleyball is maintained in
+[GNU ELPA](https://elpa.gnu.org/).  To clone it, run the following commands:
 
     git clone https://git.savannah.gnu.org/git/emacs/elpa.git
-	cd elpa/packages
-	git worktree add slime-volleyball externals/slime-volleyball
-	cd slime-volleyball
+    cd elpa/packages
+    git worktree add slime-volleyball externals/slime-volleyball
+    cd slime-volleyball
 
 To report a bug, send an email to bug-gnu-emacs@@gnu.org with
 "slime-volleyball" somewhere in the subject line.
